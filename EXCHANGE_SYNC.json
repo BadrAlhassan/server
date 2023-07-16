@@ -1,0 +1,103 @@
+{
+  "id": "EXCHANGE_SYNC",
+  "initial": "Init",
+  "states": {
+    "Init": {
+      "on": {
+        "STARTED": {
+          "target": "LOADING_PARAMETERS"
+        }
+      }
+    },
+    "LOADING_PARAMETERS": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_parameters (ctrl)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "Second State",
+          "actions": {
+            "params": {},
+            "type": "assign (ctrl) (ctrl)"
+          }
+        }
+      }
+    },
+    "Second State": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (hello) (a)"
+        },
+        {
+          "params": {},
+          "type": "set (goodbye) (b)"
+        },
+        {
+          "params": {},
+          "type": "sync (ctrl a b)"
+        }
+      ],
+      "on": {
+        "SYNC_SENT": {
+          "target": "new state 2",
+          "actions": {
+            "params": {},
+            "type": "assign (ctrl) (ctrl)"
+          }
+        }
+      }
+    },
+    "new state 2": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (5) (timeout)"
+        },
+        {
+          "params": {},
+          "type": "wait_sync_signal (ctrl timeout) (test1 test2)"
+        }
+      ],
+      "on": {
+        "SYNC_AVAILABLE": {
+          "target": "new state 1"
+        },
+        "TIMEOUT": {
+          "target": "new state 3"
+        }
+      }
+    },
+    "new state 1": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (DONE) (event)"
+        },
+        {
+          "params": {},
+          "type": "return (event)"
+        }
+      ]
+    },
+    "new state 3": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (TIMEOUT) (event)"
+        },
+        {
+          "params": {},
+          "type": "return (event)"
+        }
+      ]
+    }
+  }
+}

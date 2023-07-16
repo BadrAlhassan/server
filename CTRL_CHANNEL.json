@@ -1,0 +1,155 @@
+{
+  "id": "CTRL_CHANNEL",
+  "initial": "Init",
+  "states": {
+    "Init": {
+      "on": {
+        "STARTED": {
+          "target": "LOADING_VARIABLES"
+        }
+      }
+    },
+    "LOADING_VARIABLES": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_from_file (variables role) (role)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables client) (client)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables server) (server)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": [
+          {
+            "target": "STARTING_CTRL_CHANNEL_CLIENT",
+            "cond": "equal (role client)"
+          },
+          {
+            "target": "STARTING_CTRL_CHANNEL_SERVER",
+            "cond": "equal (role server)"
+          }
+        ]
+      }
+    },
+    "STARTING_CTRL_CHANNEL_CLIENT": {
+      "entry": [
+        {
+          "params": {},
+          "type": "load_control_channel_configuration (control_client) (controller_conf)"
+        },
+        {
+          "params": {},
+          "type": "configure_client_control_channel (controller_conf) (controller controller_protocol)"
+        },
+        {
+          "params": {},
+          "type": "start_control_channel (controller)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "SETUP_CTRL_LINK",
+          "actions": {
+            "params": {},
+            "type": "assign (controller_protocol) (controller_protocol)"
+          }
+        }
+      }
+    },
+    "STARTING_CTRL_CHANNEL_SERVER": {
+      "entry": [
+        {
+          "params": {},
+          "type": "load_control_channel_configuration (control_server) (controller_conf)"
+        },
+        {
+          "params": {},
+          "type": "configure_server_control_channel (controller_conf) (controller controller_protocol)"
+        },
+        {
+          "params": {},
+          "type": "start_control_channel (controller)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "SETUP_CTRL_LINK",
+          "actions": {
+            "params": {},
+            "type": "assign (controller_protocol) (controller_protocol)"
+          }
+        }
+      }
+    },
+    "SETUP_CTRL_LINK": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (10) (timeout)"
+        },
+        {
+          "params": {},
+          "type": "wait_ready_signal (controller_protocol timeout)"
+        }
+      ],
+      "on": {
+        "READY": {
+          "target": "SUCCESSFUL_CTRL_CHANNEL",
+          "actions": {
+            "params": {},
+            "type": "assign (controller_protocol) (controller_protocol)"
+          }
+        },
+        "TIMEOUT": {
+          "target": "TIMEOUT_END",
+          "actions": {
+            "params": {},
+            "type": "assign (controller_protocol) (controller_protocol)"
+          }
+        }
+      }
+    },
+    "SUCCESSFUL_CTRL_CHANNEL": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (CONTROL_LINK_READY) (event)"
+        },
+        {
+          "params": {},
+          "type": "return_values (event controller_protocol)"
+        }
+      ]
+    },
+    "TIMEOUT_END": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (TIMEOUT) (event)"
+        },
+        {
+          "params": {},
+          "type": "return_values (event controller_protocol)"
+        }
+      ]
+    }
+  }
+}

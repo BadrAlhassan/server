@@ -1,0 +1,10 @@
+{
+  "role": "server",
+  "server": "server",
+  "client": "client",
+  "syn": "2",
+  "ack": "16",
+  "syn/ack": "18",
+  "server_port": "80",
+  "server_ip": "192.168.123.3"
+}

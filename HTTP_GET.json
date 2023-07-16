@@ -1,0 +1,75 @@
+{
+  "id": "HTTP GET",
+  "initial": "INITIALIZING",
+  "states": {
+    "INITIALIZING": {
+      "on": {
+        "STARTED": {
+          "target": "DEFINING_TIMEOUT_TARGET"
+        }
+      }
+    },
+    "DEFINING_TIMEOUT_TARGET": {
+      "entry": [
+        {
+          "params": {},
+          "type": "redirect (TIMEOUT ENDING)"
+        },
+        {
+          "params": {},
+          "type": "done",
+          "value": {
+            "type": "expression"
+          }
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "SETTING_UP_CONTROL_LINK"
+        }
+      }
+    },
+    "SETTING_UP_CONTROL_LINK": {
+      "entry": [
+        {
+          "params": {},
+          "type": "call (CTRL_CHANNEL) (event ctrl)",
+          "value": {
+            "type": "expression"
+          }
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "CONTROL_LINK_READY": {
+          "target": "SENDING_SYNC_MESSAGE",
+          "actions": {
+            "params": {},
+            "type": "assign (ctrl) (ctrl)"
+          }
+        }
+      }
+    },
+    "SENDING_SYNC_MESSAGE": {
+      "entry": [
+        {
+          "params": {},
+          "type": "call (EXCHANGE_SYNC ctrl) (event)"
+        },
+        {
+          "params": {},
+          "type": "trigger (event)"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "end"
+        }
+      }
+    },
+    "end": {}
+  }
+}
