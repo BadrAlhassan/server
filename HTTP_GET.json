@@ -17,10 +17,7 @@
         },
         {
           "params": {},
-          "type": "done",
-          "value": {
-            "type": "expression"
-          }
+          "type": "done"
         }
       ],
       "on": {
@@ -33,14 +30,11 @@
       "entry": [
         {
           "params": {},
-          "type": "call (CTRL_CHANNEL) (event ctrl)",
-          "value": {
-            "type": "expression"
-          }
+          "type": "call (CTRL_CHANNEL) (event ctrl)"
         },
         {
           "params": {},
-          "type": "done"
+          "type": "trigger (event)"
         }
       ],
       "on": {
@@ -66,7 +60,30 @@
       ],
       "on": {
         "DONE": {
-          "target": "end"
+          "target": "SETTING_UP_VARIABLES"
+        }
+      }
+    },
+    "SETTING_UP_VARIABLES": {
+      "entry": [
+        {
+          "type": "call (SETTING_UP_VARIABLES) (event pkt queue)"
+        },
+        {
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "end",
+          "actions": [
+            {
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "type": "assign (queue) (queue)"
+            }
+          ]
         }
       }
     },

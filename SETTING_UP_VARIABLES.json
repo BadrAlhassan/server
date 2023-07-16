@@ -1,0 +1,181 @@
+{
+  "id": "SETTING_UP_VARIABLES",
+  "initial": "Init",
+  "states": {
+    "Init": {
+      "on": {
+        "STARTED": {
+          "target": "LOADING_VARIABLES"
+        }
+      }
+    },
+    "LOADING_VARIABLES": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_from_file (variables role) (role)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables client) (client)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables server) (server)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables server_port) (server_port)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables server_ip) (server_ip)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": [
+          {
+            "target": "CREATE_PACKET_CLIENT",
+            "cond": "equal (role client)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (server_ip) (server_ip)"
+              },
+              {
+                "params": {},
+                "type": "assign (server_port) (server_port)"
+              }
+            ]
+          },
+          {
+            "target": "CREATE_PACKET_SERVER",
+            "cond": "equal (role server)",
+            "actions": {
+              "params": {},
+              "type": "assign (server_port) (server_port)"
+            }
+          }
+        ]
+      }
+    },
+    "CREATE_PACKET_CLIENT": {
+      "entry": [
+        {
+          "params": {},
+          "type": "create_TCP_packet (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_random_int (10000 20000) (client_port)"
+        },
+        {
+          "params": {},
+          "type": "set_IP_dst (pkt server_ip) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_sport (pkt client_port) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_dport (pkt server_port) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_random_int (100000 200000) (client_seq)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_flags (pkt syn) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_seq (pkt client_seq) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "listen (queue)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "ENDING",
+          "actions": [
+            {
+              "params": {},
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "params": {},
+              "type": "assign (queue) (queue)"
+            }
+          ]
+        }
+      }
+    },
+    "CREATE_PACKET_SERVER": {
+      "entry": [
+        {
+          "params": {},
+          "type": "create_TCP_packet (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_random_int (100000 200000) (server_seq)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_sport (pkt server_port) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_seq (pkt server_seq) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "listen (queue)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "ENDING",
+          "actions": [
+            {
+              "params": {},
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "params": {},
+              "type": "assign (queue) (queue)"
+            }
+          ]
+        }
+      }
+    },
+    "ENDING": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (DONE) (event)"
+        },
+        {
+          "params": {},
+          "type": "return (event pkt queue)"
+        }
+      ]
+    }
+  }
+}
