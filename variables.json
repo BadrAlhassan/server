@@ -2,9 +2,10 @@
   "role": "server",
   "server": "server",
   "client": "client",
-  "syn": "2",
-  "ack": "16",
-  "syn/ack": "18",
+  "syn": "S",
+  "ack": "A",
+  "syn/ack": "SA",
   "server_port": "12345",
-  "server_ip": "192.168.123.3"
+  "server_ip": "192.168.123.3",
+  "filter": "TCP"
 }

@@ -1,0 +1,415 @@
+{
+  "id": "THREE_WAY_HANDSHAKE",
+  "initial": "INITIALIZING",
+  "states": {
+    "INITIALIZING": {
+      "on": {
+        "STARTED": {
+          "target": "LOADING_VARIABLES"
+        }
+      }
+    },
+    "LOADING_VARIABLES": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_from_file (variables role) (role)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables client) (client)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables server) (server)"
+        },
+        {
+          "params": {},
+          "type": "get_parameters (pkt queue)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables syn/ack) (syn/ack)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables ack) (ack)"
+        },
+        {
+          "params": {},
+          "type": "get_from_file (variables syn) (syn)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": [
+          {
+            "target": "SENDING SYN",
+            "cond": "equal (role client)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (pkt) (pkt)"
+              },
+              {
+                "params": {},
+                "type": "assign (queue) (queue)"
+              },
+              {
+                "params": {},
+                "type": "assign (ack) (ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn/ack) (syn/ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn) (syn)"
+              }
+            ]
+          },
+          {
+            "target": "LISTENING",
+            "cond": "equal (role server)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (pkt) (pkt)"
+              },
+              {
+                "params": {},
+                "type": "assign (queue) (queue)"
+              },
+              {
+                "params": {},
+                "type": "assign (ack) (ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn/ack) (syn/ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn) (syn)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SENDING SYN": {
+      "entry": {
+        "params": {},
+        "type": "send (pkt)"
+      },
+      "on": {
+        "PACKET_SENT": {
+          "target": "LISTENING",
+          "actions": [
+            {
+              "params": {},
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "params": {},
+              "type": "assign (queue) (queue)"
+            },
+            {
+              "params": {},
+              "type": "assign (ack) (ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn/ack) (syn/ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn) (syn)"
+            }
+          ]
+        }
+      }
+    },
+    "LISTENING": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (5) (timeout)"
+        },
+        {
+          "params": {},
+          "type": "wait_packet_signal (queue timeout)"
+        }
+      ],
+      "on": {
+        "PACKET_AVAILABLE": {
+          "target": "GETTING_FLAGS",
+          "actions": [
+            {
+              "params": {},
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "params": {},
+              "type": "assign (queue) (queue)"
+            },
+            {
+              "params": {},
+              "type": "assign (ack) (ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn/ack) (syn/ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn) (syn)"
+            }
+          ]
+        },
+        "TIMEOUT": {
+          "target": "TIMEOUT ENDING"
+        }
+      }
+    },
+    "GETTING_FLAGS": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_TCP_flags (queue) (flags)"
+        },
+        {
+          "params": {},
+          "type": "set (TCP_PACKET_RECEIVED) (event)"
+        },
+        {
+          "params": {},
+          "type": "trigger (event)"
+        }
+      ],
+      "on": {
+        "TCP_PACKET_RECEIVED": [
+          {
+            "target": "HANDLING_SYN",
+            "cond": "equal (flags syn)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (pkt) (pkt)"
+              },
+              {
+                "params": {},
+                "type": "assign (queue) (queue)"
+              },
+              {
+                "params": {},
+                "type": "assign (ack) (ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn/ack) (syn/ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn) (syn)"
+              }
+            ]
+          },
+          {
+            "target": "HANDLING_ACK",
+            "cond": "equal (flags ack)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (pkt) (pkt)"
+              },
+              {
+                "params": {},
+                "type": "assign (queue) (queue)"
+              },
+              {
+                "params": {},
+                "type": "assign (ack) (ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn/ack) (syn/ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn) (syn)"
+              }
+            ]
+          },
+          {
+            "target": "HANDLING_SYN_ACK",
+            "cond": "equal (flags syn/ack)",
+            "actions": [
+              {
+                "params": {},
+                "type": "assign (pkt) (pkt)"
+              },
+              {
+                "params": {},
+                "type": "assign (queue) (queue)"
+              },
+              {
+                "params": {},
+                "type": "assign (ack) (ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn/ack) (syn/ack)"
+              },
+              {
+                "params": {},
+                "type": "assign (syn) (syn)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TIMEOUT ENDING": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (TIMEOUT) (event)"
+        },
+        {
+          "params": {},
+          "type": "return_values (event)"
+        }
+      ]
+    },
+    "HANDLING_SYN": {
+      "entry": [
+        {
+          "params": {},
+          "type": "get_packet_IP (queue) (client_ip)"
+        },
+        {
+          "params": {},
+          "type": "set_IP_dst (pkt client_ip) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "get_packet_port (queue) (client_port)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_dport (pkt client_port) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_flags (pkt syn/ack) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "pop (queue)"
+        },
+        {
+          "params": {},
+          "type": "send (pkt)"
+        }
+      ],
+      "on": {
+        "PACKET_SENT": {
+          "target": "LISTENING",
+          "actions": [
+            {
+              "params": {},
+              "type": "assign (pkt) (pkt)"
+            },
+            {
+              "params": {},
+              "type": "assign (queue) (queue)"
+            },
+            {
+              "params": {},
+              "type": "assign (ack) (ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn/ack) (syn/ack)"
+            },
+            {
+              "params": {},
+              "type": "assign (syn) (syn)"
+            }
+          ]
+        }
+      }
+    },
+    "HANDLING_ACK": {
+      "entry": [
+        {
+          "params": {},
+          "type": "pop (queue)"
+        },
+        {
+          "params": {},
+          "type": "done"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "ENDING"
+        }
+      }
+    },
+    "HANDLING_SYN_ACK": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "set_TCP_flags (pkt ack) (pkt)"
+        },
+        {
+          "params": {},
+          "type": "pop (queue)"
+        },
+        {
+          "params": {},
+          "type": "send (pkt)"
+        }
+      ],
+      "on": {
+        "PACKET_SENT": {
+          "target": "ENDING"
+        }
+      }
+    },
+    "ENDING": {
+      "entry": [
+        {
+          "params": {},
+          "type": "set (DONE) (event)"
+        },
+        {
+          "params": {},
+          "type": "return_values (event)"
+        }
+      ]
+    }
+  }
+}

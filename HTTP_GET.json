@@ -77,7 +77,7 @@
       ],
       "on": {
         "DONE": {
-          "target": "end",
+          "target": "STARTING_THREE_WAY_HANDSHAKE",
           "actions": [
             {
               "params": {},
@@ -88,6 +88,21 @@
               "type": "assign (queue) (queue)"
             }
           ]
+        }
+      }
+    },
+    "STARTING_THREE_WAY_HANDSHAKE": {
+      "entry": [
+        {
+          "type": "call (THREE_WAY_HANDSHAKE pkt queue) (event)"
+        },
+        {
+          "type": "trigger (event)"
+        }
+      ],
+      "on": {
+        "DONE": {
+          "target": "end"
         }
       }
     },
