@@ -33,6 +33,9 @@
         },
         {
           "params": {},
+          "type": "get_from_file (variables syn) (syn)"
+        },
+        {
           "type": "done"
         }
       ],
@@ -49,6 +52,9 @@
               {
                 "params": {},
                 "type": "assign (server_port) (server_port)"
+              },
+              {
+                "type": "assign (syn) (syn)"
               }
             ]
           },
@@ -91,18 +97,17 @@
         },
         {
           "params": {},
-          "type": "set_TCP_flags (pkt syn) (pkt)"
+          "type": "set_TCP_seq (pkt client_seq) (pkt)"
         },
         {
           "params": {},
-          "type": "set_TCP_seq (pkt client_seq) (pkt)"
+          "type": "set_TCP_flags (pkt syn) (pkt)"
         },
         {
           "params": {},
           "type": "listen (queue)"
         },
         {
-          "params": {},
           "type": "done"
         }
       ],
@@ -173,7 +178,7 @@
         },
         {
           "params": {},
-          "type": "return (event pkt queue)"
+          "type": "return_values (event pkt queue)"
         }
       ]
     }

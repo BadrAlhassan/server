@@ -83,7 +83,7 @@
         },
         {
           "params": {},
-          "type": "return (event)"
+          "type": "return_values (event)"
         }
       ]
     },
@@ -95,7 +95,7 @@
         },
         {
           "params": {},
-          "type": "return (event)"
+          "type": "return_values (event)"
         }
       ]
     }
