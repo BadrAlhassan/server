@@ -64,7 +64,11 @@
               },
               {
                 "params": {},
-                "type": "assign (syn/ack) (syn/ack)"
+                "type": "assign (syn/ack) (syn/ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn/ack) (syn/ack)\"\n              }"
+                }
               },
               {
                 "params": {},
@@ -298,7 +302,7 @@
         },
         {
           "params": {},
-          "type": "get_packet_port (queue) (client_port)"
+          "type": "get_TCP_sport (pkt) (client_port)"
         },
         {
           "params": {},

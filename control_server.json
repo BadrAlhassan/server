@@ -1,6 +1,6 @@
 {
      "ROOT_CERTIFICATE": "root_ca.crt",
      "PRIVATE_CERTIFICATE": "endpoint2.pem",
-     "DESTINATION_IP": "192.168.123.2",
-     "SERVER_PORT": "12345"
+     "DESTINATION_IP": "192.168.123.3",
+     "SERVER_PORT": "80"
 }
