@@ -36,6 +36,13 @@
           "type": "get_from_file (variables syn) (syn)"
         },
         {
+          "params": {},
+          "type": "get_from_file (variables filter) (filter)"
+        },
+        {
+          "type": "packet_filter (filter)"
+        },
+        {
           "type": "done"
         }
       ],
@@ -54,6 +61,7 @@
                 "type": "assign (server_port) (server_port)"
               },
               {
+                "params": {},
                 "type": "assign (syn) (syn)"
               }
             ]
@@ -108,6 +116,7 @@
           "type": "listen (queue)"
         },
         {
+          "params": {},
           "type": "done"
         }
       ],
