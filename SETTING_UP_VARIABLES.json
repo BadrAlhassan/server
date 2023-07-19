@@ -85,7 +85,7 @@
         },
         {
           "params": {},
-          "type": "set_random_int (10000 20000) (client_port)"
+          "type": "set (12321) (client_port)"
         },
         {
           "params": {},

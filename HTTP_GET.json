@@ -13,11 +13,19 @@
       "entry": [
         {
           "params": {},
-          "type": "redirect (TIMEOUT ENDING)"
+          "type": "redirect (TIMEOUT ENDING)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"redirect (TIMEOUT ENDING)\",\n          \"value\": {\n            \"type\": \"expression\",\n            \"value\": \"{\\n          \\\"params\\\": {},\\n          \\\"type\\\": \\\"redirect (TIMEOUT ENDING)\\\"\\n        }\"\n          }\n        }"
+          }
         },
         {
           "params": {},
-          "type": "done"
+          "type": "done",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"done\",\n          \"value\": {\n            \"type\": \"expression\",\n            \"value\": \"{\\n          \\\"params\\\": {},\\n          \\\"type\\\": \\\"done\\\"\\n        }\"\n          }\n        }"
+          }
         }
       ],
       "on": {
@@ -30,11 +38,19 @@
       "entry": [
         {
           "params": {},
-          "type": "call (CTRL_CHANNEL) (event ctrl)"
+          "type": "call (CTRL_CHANNEL) (event ctrl)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"call (CTRL_CHANNEL) (event ctrl)\",\n          \"value\": {\n            \"type\": \"expression\",\n            \"value\": \"{\\n          \\\"params\\\": {},\\n          \\\"type\\\": \\\"call (CONTROL_LINK_SET_UP) (event ctrl)\\\"\\n        }\"\n          }\n        }"
+          }
         },
         {
           "params": {},
-          "type": "trigger (event)"
+          "type": "trigger (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"trigger (event)\",\n          \"value\": {\n            \"type\": \"expression\",\n            \"value\": \"{\\n          \\\"params\\\": {},\\n          \\\"type\\\": \\\"trigger (event)\\\"\\n        }\"\n          }\n        }"
+          }
         }
       ],
       "on": {
@@ -72,12 +88,12 @@
         },
         {
           "params": {},
-          "type": "done"
+          "type": "trigger (event)"
         }
       ],
       "on": {
         "DONE": {
-          "target": "STARTING_THREE_WAY_HANDSHAKE",
+          "target": "START_TWH",
           "actions": [
             {
               "params": {},
@@ -91,7 +107,7 @@
         }
       }
     },
-    "STARTING_THREE_WAY_HANDSHAKE": {
+    "START_TWH": {
       "entry": [
         {
           "type": "call (THREE_WAY_HANDSHAKE pkt queue) (event)"

@@ -13,34 +13,61 @@
       "entry": [
         {
           "params": {},
-          "type": "get_from_file (variables role) (role)"
+          "type": "get_from_file (variables role) (role)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables role) (role)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_from_file (variables client) (client)"
+          "type": "get_from_file (variables client) (client)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables client) (client)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_from_file (variables server) (server)"
+          "type": "get_from_file (variables server) (server)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables server) (server)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_parameters (pkt queue)"
+          "type": "get_parameters (pkt queue)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_parameters (pkt queue)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_from_file (variables syn/ack) (syn/ack)"
+          "type": "get_from_file (variables syn/ack) (syn/ack)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables syn/ack) (syn/ack)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_from_file (variables ack) (ack)"
+          "type": "get_from_file (variables ack) (ack)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables ack) (ack)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_from_file (variables syn) (syn)"
+          "type": "get_from_file (variables syn) (syn)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_from_file (variables syn) (syn)\"\n        }"
+          }
         },
         {
-          "params": {},
           "type": "done"
         }
       ],
@@ -52,15 +79,27 @@
             "actions": [
               {
                 "params": {},
-                "type": "assign (pkt) (pkt)"
+                "type": "assign (pkt) (pkt)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (pkt) (pkt)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (queue) (queue)"
+                "type": "assign (queue) (queue)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (queue) (queue)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (ack) (ack)"
+                "type": "assign (ack) (ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (ack) (ack)\"\n              }"
+                }
               },
               {
                 "params": {},
@@ -72,7 +111,11 @@
               },
               {
                 "params": {},
-                "type": "assign (syn) (syn)"
+                "type": "assign (syn) (syn)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn) (syn)\"\n              }"
+                }
               }
             ]
           },
@@ -82,23 +125,43 @@
             "actions": [
               {
                 "params": {},
-                "type": "assign (pkt) (pkt)"
+                "type": "assign (pkt) (pkt)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (pkt) (pkt)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (queue) (queue)"
+                "type": "assign (queue) (queue)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (queue) (queue)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (ack) (ack)"
+                "type": "assign (ack) (ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (ack) (ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn/ack) (syn/ack)"
+                "type": "assign (syn/ack) (syn/ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn/ack) (syn/ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn) (syn)"
+                "type": "assign (syn) (syn)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn) (syn)\"\n              }"
+                }
               }
             ]
           }
@@ -108,7 +171,11 @@
     "SENDING SYN": {
       "entry": {
         "params": {},
-        "type": "send (pkt)"
+        "type": "send (pkt)",
+        "value": {
+          "type": "expression",
+          "value": "{\n        \"params\": {},\n        \"type\": \"send (pkt)\"\n      }"
+        }
       },
       "on": {
         "PACKET_SENT": {
@@ -116,23 +183,43 @@
           "actions": [
             {
               "params": {},
-              "type": "assign (pkt) (pkt)"
+              "type": "assign (pkt) (pkt)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (pkt) (pkt)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (queue) (queue)"
+              "type": "assign (queue) (queue)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (queue) (queue)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (ack) (ack)"
+              "type": "assign (ack) (ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (ack) (ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn/ack) (syn/ack)"
+              "type": "assign (syn/ack) (syn/ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn/ack) (syn/ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn) (syn)"
+              "type": "assign (syn) (syn)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn) (syn)\"\n            }"
+              }
             }
           ]
         }
@@ -142,11 +229,19 @@
       "entry": [
         {
           "params": {},
-          "type": "set (5) (timeout)"
+          "type": "set (5) (timeout)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set (5) (timeout)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "wait_packet_signal (queue timeout)"
+          "type": "wait_packet_signal (queue timeout)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"wait_packet_signal (queue timeout)\"\n        }"
+          }
         }
       ],
       "on": {
@@ -155,23 +250,43 @@
           "actions": [
             {
               "params": {},
-              "type": "assign (pkt) (pkt)"
+              "type": "assign (pkt) (pkt)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (queue) (queue)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (queue) (queue)"
+              "type": "assign (queue) (queue)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (pkt) (pkt)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (ack) (ack)"
+              "type": "assign (ack) (ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (ack) (ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn/ack) (syn/ack)"
+              "type": "assign (syn/ack) (syn/ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn/ack) (syn/ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn) (syn)"
+              "type": "assign (syn) (syn)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn) (syn)\"\n            }"
+              }
             }
           ]
         },
@@ -184,15 +299,27 @@
       "entry": [
         {
           "params": {},
-          "type": "get_TCP_flags (queue) (flags)"
+          "type": "get_TCP_flags (queue) (flags)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_TCP_flags (queue) (flags)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set (TCP_PACKET_RECEIVED) (event)"
+          "type": "set (TCP_PACKET_RECEIVED) (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set (TCP_PACKET_RECEIVED) (event)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "trigger (event)"
+          "type": "trigger (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"trigger (event)\"\n        }"
+          }
         }
       ],
       "on": {
@@ -203,23 +330,43 @@
             "actions": [
               {
                 "params": {},
-                "type": "assign (pkt) (pkt)"
+                "type": "assign (pkt) (pkt)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (pkt) (pkt)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (queue) (queue)"
+                "type": "assign (queue) (queue)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (queue) (queue)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (ack) (ack)"
+                "type": "assign (ack) (ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (ack) (ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn/ack) (syn/ack)"
+                "type": "assign (syn/ack) (syn/ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn/ack) (syn/ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn) (syn)"
+                "type": "assign (syn) (syn)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn) (syn)\"\n              }"
+                }
               }
             ]
           },
@@ -229,23 +376,43 @@
             "actions": [
               {
                 "params": {},
-                "type": "assign (pkt) (pkt)"
+                "type": "assign (pkt) (pkt)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (pkt) (pkt)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (queue) (queue)"
+                "type": "assign (queue) (queue)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (queue) (queue)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (ack) (ack)"
+                "type": "assign (ack) (ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (ack) (ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn/ack) (syn/ack)"
+                "type": "assign (syn/ack) (syn/ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn/ack) (syn/ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn) (syn)"
+                "type": "assign (syn) (syn)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn) (syn)\"\n              }"
+                }
               }
             ]
           },
@@ -255,23 +422,43 @@
             "actions": [
               {
                 "params": {},
-                "type": "assign (pkt) (pkt)"
+                "type": "assign (pkt) (pkt)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (pkt) (pkt)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (queue) (queue)"
+                "type": "assign (queue) (queue)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (queue) (queue)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (ack) (ack)"
+                "type": "assign (ack) (ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (ack) (ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn/ack) (syn/ack)"
+                "type": "assign (syn/ack) (syn/ack)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn/ack) (syn/ack)\"\n              }"
+                }
               },
               {
                 "params": {},
-                "type": "assign (syn) (syn)"
+                "type": "assign (syn) (syn)",
+                "value": {
+                  "type": "expression",
+                  "value": "{\n                \"params\": {},\n                \"type\": \"assign (syn) (syn)\"\n              }"
+                }
               }
             ]
           }
@@ -282,11 +469,19 @@
       "entry": [
         {
           "params": {},
-          "type": "set (TIMEOUT) (event)"
+          "type": "set (TIMEOUT) (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set (TIMEOUT) (event)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "return_values (event)"
+          "type": "return_values (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"return (event)\"\n        }"
+          }
         }
       ]
     },
@@ -294,39 +489,75 @@
       "entry": [
         {
           "params": {},
-          "type": "get_packet_IP (queue) (client_ip)"
+          "type": "get_packet_IP (queue) (client_ip)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_packet_IP (queue) (client_ip)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_IP_dst (pkt client_ip) (pkt)"
+          "type": "set_IP_dst (pkt client_ip) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_IP_dst (pkt client_ip) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "get_TCP_sport (pkt) (client_port)"
+          "type": "set (12321) (client_port)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"get_packet_port (queue) (client_port)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_dport (pkt client_port) (pkt)"
+          "type": "set_TCP_dport (pkt client_port) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_dport (pkt client_port) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)"
+          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_automatic_packet_seq (pkt) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)"
+          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_automatic_packet_ack (pkt queue) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_flags (pkt syn/ack) (pkt)"
+          "type": "set_TCP_flags (pkt syn/ack) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_flags (pkt syn/ack) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "pop (queue)"
+          "type": "pop (queue)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"pop (queue)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "send (pkt)"
+          "type": "send (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"send (pkt)\"\n        }"
+          }
         }
       ],
       "on": {
@@ -335,23 +566,43 @@
           "actions": [
             {
               "params": {},
-              "type": "assign (pkt) (pkt)"
+              "type": "assign (pkt) (pkt)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (pkt) (pkt)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (queue) (queue)"
+              "type": "assign (queue) (queue)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (queue) (queue)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (ack) (ack)"
+              "type": "assign (ack) (ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (ack) (ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn/ack) (syn/ack)"
+              "type": "assign (syn/ack) (syn/ack)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn/ack) (syn/ack)\"\n            }"
+              }
             },
             {
               "params": {},
-              "type": "assign (syn) (syn)"
+              "type": "assign (syn) (syn)",
+              "value": {
+                "type": "expression",
+                "value": "{\n              \"params\": {},\n              \"type\": \"assign (syn) (syn)\"\n            }"
+              }
             }
           ]
         }
@@ -361,11 +612,19 @@
       "entry": [
         {
           "params": {},
-          "type": "pop (queue)"
+          "type": "pop (queue)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"pop (queue)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "done"
+          "type": "done",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"done\"\n        }"
+          }
         }
       ],
       "on": {
@@ -378,23 +637,43 @@
       "entry": [
         {
           "params": {},
-          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)"
+          "type": "set_TCP_automatic_packet_seq (pkt) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_automatic_packet_seq (pkt) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)"
+          "type": "set_TCP_automatic_packet_ack (pkt queue) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_automatic_packet_ack (pkt queue) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "set_TCP_flags (pkt ack) (pkt)"
+          "type": "set_TCP_flags (pkt ack) (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set_TCP_flags (pkt ack) (pkt)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "pop (queue)"
+          "type": "pop (queue)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"pop (queue)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "send (pkt)"
+          "type": "send (pkt)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"send (pkt)\"\n        }"
+          }
         }
       ],
       "on": {
@@ -407,11 +686,19 @@
       "entry": [
         {
           "params": {},
-          "type": "set (DONE) (event)"
+          "type": "set (DONE) (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"set (DONE) (event)\"\n        }"
+          }
         },
         {
           "params": {},
-          "type": "return_values (event)"
+          "type": "return_values (event)",
+          "value": {
+            "type": "expression",
+            "value": "{\n          \"params\": {},\n          \"type\": \"return (event)\"\n        }"
+          }
         }
       ]
     }
